@@ -4,7 +4,7 @@
 Plugin Name: OBDIY Divi Enhancements
 Plugin URI: https://github.com/JasonDodd511/obdiy-divi-enhancements
 Description: Plugin to house Divi snippets.
-Version: 1.0
+Version: 1.1
 Author: Jason Dodd
 Author URI: https://cambent.com
 License: GPL2
@@ -54,3 +54,20 @@ function fmpm_admin_js() {
 	}
 }
 add_action('admin_head', 'fmpm_admin_js');
+
+/**
+ * Make footer sticky
+ *
+ */
+
+function obdiy_sticky_footer(){
+
+	?>
+
+    <script>// <![CDATA[
+        var th = jQuery('#top-header').height(); var hh = jQuery('#main-header').height(); var fh = jQuery('#main-footer').height(); var wh = jQuery(window).height(); var ch = wh - (th + hh + fh); jQuery('#main-content').css('min-height', ch);
+        // ]]></script>
+
+<?php }
+
+add_action('wp_footer', 'obdiy_sticky_footer');
